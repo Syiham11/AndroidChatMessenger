@@ -53,7 +53,6 @@ public class HomeActivity extends ActionBarActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setTitle("Android Chat Messaging");
-		getSupportActionBar().setSubtitle("Buat Chat ke teman-teman!");
 
 		/**
 		 * (non-Javadoc) Setting Navigation Drawer

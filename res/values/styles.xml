@@ -13,7 +13,9 @@
         <item name="windowActionBarOverlay">true</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
-        <item name="android:background">@color/blue_500</item>
+        <item name="android:background">@color/main_color_600</item>
+        <item name="android:actionBarSize">80dp</item>
+        <item name="actionBarSize">80dp</item>
     </style>
 
     <style name="PopUp" parent="ThemeOverlay.AppCompat.Light">
