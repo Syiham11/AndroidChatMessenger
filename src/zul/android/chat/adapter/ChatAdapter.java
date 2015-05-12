@@ -1,9 +1,8 @@
 package zul.android.chat.adapter;
 
 import java.util.ArrayList;
-
 import zul.android.chat.R;
-import zul.android.chat.model.ContactModel;
+import zul.android.chat.model.ChatModel;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -14,23 +13,24 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 @SuppressLint("InflateParams")
-public class ContactAdapter extends BaseAdapter {
-	ArrayList<ContactModel> contact_data;
+public class ChatAdapter extends BaseAdapter {
+
+	ArrayList<ChatModel> chat_data;
 	Context context;
 
-	public ContactAdapter(ArrayList<ContactModel> contact_data, Context context) {
-		this.contact_data = new ArrayList<ContactModel>(contact_data);
+	public ChatAdapter(ArrayList<ChatModel> chat_data, Context context) {
+		this.chat_data = new ArrayList<ChatModel>(chat_data);
 		this.context = context;
 	}
 
 	@Override
 	public int getCount() {
-		return contact_data.size();
+		return chat_data.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return contact_data.get(position);
+		return chat_data.get(position);
 	}
 
 	@Override
@@ -43,14 +43,17 @@ public class ContactAdapter extends BaseAdapter {
 		if (converter == null) {
 			LayoutInflater mInflater = (LayoutInflater) context
 					.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-			converter = mInflater.inflate(R.layout.list_item_contact, null);
+			converter = mInflater.inflate(R.layout.list_item_chat, null);
 		}
 
-		TextView txtName = (TextView) converter.findViewById(R.id.contact_name);
-		TextView txtMail = (TextView) converter.findViewById(R.id.contact_mail);
+		TextView chatDate = (TextView) converter.findViewById(R.id.chat_date);
+		TextView chatWith = (TextView) converter.findViewById(R.id.chat_with);
+		TextView sentence = (TextView) converter
+				.findViewById(R.id.chat_last_sentence);
 
-		txtName.setText(contact_data.get(position).getName());
-		txtMail.setText(contact_data.get(position).getEmail());
+		chatDate.setText(chat_data.get(position).getDate());
+		chatWith.setText(chat_data.get(position).getChatWith());
+		sentence.setText(chat_data.get(position).getLastSentence());
 		return converter;
 	}
 
