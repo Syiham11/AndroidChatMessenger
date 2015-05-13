@@ -7,7 +7,6 @@
     android:orientation="horizontal" >
 
     <ImageView
-        android:id="@+id/user_avatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="16dp"
@@ -20,7 +19,6 @@
         android:orientation="vertical" >
 
         <zul.android.chat.font.RobotoTextView
-            android:id="@+id/contact_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome"
@@ -28,7 +26,6 @@
             android:textSize="9pt" />
 
         <zul.android.chat.font.RobotoTextView
-            android:id="@+id/contact_mail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome"

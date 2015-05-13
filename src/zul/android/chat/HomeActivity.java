@@ -8,7 +8,6 @@ import zul.android.chat.lib.SlidingTabLayout;
 import zul.android.chat.model.NavDrawerModel;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -32,7 +31,7 @@ public class HomeActivity extends ActionBarActivity {
 	private NavDrawerAdapter adapter;
 	private ArrayList<NavDrawerModel> navDrawerItems;
 	private Toolbar toolbar;
-	private ViewPager mViewPager;
+	public static ViewPager mViewPager;
 	private SlidingTabLayout mSlidingTab;
 
 	private String[] navMenuTitles;
@@ -105,23 +104,13 @@ public class HomeActivity extends ActionBarActivity {
 		mViewPager = (ViewPager) findViewById(R.id.view_pager);
 		mFragman = getSupportFragmentManager();
 		mViewPager.setAdapter(new ViewPagerAdapter(this, mFragman));
+		mViewPager.setCurrentItem(1, true);
 
 		mSlidingTab = (SlidingTabLayout) findViewById(R.id.sliding_tab);
+		mSlidingTab.setCustomTabView(R.layout.custom_sliding_tab, 0);
+		mSlidingTab.setDistributeEvenly(true);
 		mSlidingTab.setViewPager(mViewPager);
 
-		mSlidingTab.setCustomTabView(R.layout.custom_sliding_tab, 0);
-		mSlidingTab.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-
-			@Override
-			public int getDividerColor(int position) {
-				return 0;
-			}
-
-			@Override
-			public int getIndicatorColor(int position) {
-				return Color.parseColor("#f57f17");
-			}
-		});
 		mSlidingTab
 				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 					@Override
